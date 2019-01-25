@@ -20,6 +20,9 @@ app = Flask(__name__)
 CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
 CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
 
+line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(CHANNEL_SECRET)
+
 
 ENDPOINT = config_loader.load('./config/endpoint.yml')
 #USER_LIST = config_loader.load('./config/user_list.yml')
@@ -51,8 +54,7 @@ def poststamp(a, b, ID):
         ENDPOINT['PUSH_URL'],
         headers=HEADER,
         data=json.dumps(data),
-    )
-
+    ) 
 
 def postimage2one(image_url, ID):
     data = {
