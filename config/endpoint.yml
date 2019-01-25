@@ -1,2 +1,3 @@
 POST: 'https://api.line.me/v2/bot/message/push'
 PUSH_URL: 'https://api.line.me/v2/bot/message/push'
+MULTICAST: 'https://api.line.me/v2/bot/message/multicast'

@@ -38,8 +38,29 @@ HEADER = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer %s' % CHANNEL_ACCESS_TOKEN
 }
-def nortification(aa):
-    None
+
+def nortification(text):
+    IDs = []
+    for user in USER_LIST:
+        if USER_LIST[user] == 'ON':
+            IDs.append(user)
+    print(IDs)
+    data = {
+        "to": IDs,
+        "messages": [
+            {
+                "type": "text",
+                "text": text,
+            }
+        ]
+    }
+
+    res = requests.post(
+        ENDPOINT['MULTICAST'],
+        data=json.dumps(data),
+        headers=HEADER,
+    )
+    print(res)
 
 def registration(ID, status):
     USER_LIST[ID] = status
@@ -47,6 +68,7 @@ def registration(ID, status):
 
     if status == 'ON':
         post2one('つうちします', ID)
+        poststamp('11537','52002736',ID)
     else:
         post2one('つうちをやめます', ID)
 

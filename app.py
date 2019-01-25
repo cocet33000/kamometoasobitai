@@ -33,7 +33,6 @@ def callback():
             if ID in USER_LIST:
                 print('おかえり')
                 post2one('おかえり',ID)
-                poststamp('11537','52002736',ID)
                 ask_registration(ID)
             else:
                 print('新規ユーザ')
@@ -48,6 +47,7 @@ def callback():
         
                     if True in (x in text for x in ["かもめ"]):
                         post2one('かもめとあそびたいねー',ID)
+                        nortification('かもめがいるよ')
         
                     elif True in (x in text for x in ["からす"]):
                         post2one('からすともなかよくね',ID)
