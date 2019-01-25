@@ -41,7 +41,7 @@ HEADER = {
 
 def registration(ID, status):
     USER_LIST[ID] = status
-    onfig_loader.dump(USER_LIST,'config/user_list.yml')
+    config_loader.dump(USER_LIST,'config/user_list.yml')
 
     if status == 'ON':
         post2one('つうちします', ID)
@@ -70,7 +70,7 @@ def ask_registration(ID):
                             "type": "postback",
                             "label": "いいえ",
                             "text": "いいえ",
-                            "data": "no notification",
+                            "data": "no_notification",
                         }
                     ]
                 }

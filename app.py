@@ -69,7 +69,7 @@ def callback():
                 if(data == 'notification'): 
                     registration(ID, 'ON')
                 
-                elif(data == 'no notification'): 
+                elif(data == 'no_notification'): 
                     registration(ID, 'OFF')
         
     return 'OK'
