@@ -110,8 +110,10 @@ def ask_registration(ID):
 
 def beacon_action(action, ID):
     if(action == "enter"):
+        ask_registration(ID)
         print("becon,enter")
     else:
+        ask_registration(ID)
         print("becon,leave")
 
 def poststamp(a, b, ID):

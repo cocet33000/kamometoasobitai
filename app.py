@@ -1,9 +1,5 @@
 from func import *
 
-@app.route("/")
-def hello_world():
-    return "hello world!"
-
 @app.route("/camome", methods=['POST'])
 def camome(URL = None):
     nortification('かもめがいるよ')
@@ -12,6 +8,7 @@ def camome(URL = None):
     
     if URL != None:
         postimage2one(URL)
+
     poststamp('11537','52002741')
 
 @app.route("/callback", methods=['POST'])
@@ -38,6 +35,9 @@ def callback():
                 print('新規ユーザ')
                 post2one('はじめまして',ID)
                 ask_registration(ID)
+        
+        elif(types == "unfollow"):
+            registration(ID, 'OFF')
 
         else:
             if(types == "message"):
