@@ -62,3 +62,9 @@ def callback():
            #         overwride(TALK_TEMPLETE['M1']['TYPE1']['DATA'],'default')
         
     return 'OK'
+
+if __name__ == "__main__":
+    port = int(os.getenv('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
