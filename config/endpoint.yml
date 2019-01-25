@@ -1,8 +1,1 @@
-SNAP_SHOT: 'hogehoge'
-LINE_PAY: 'fugafuga'
 POST: 'https://api.line.me/v2/bot/message/push'
-PUSH_URL: 'https://api.line.me/v2/bot/message/push'
-RASPI1: 'https://c27d82a6.ngrok.io'
-RASPI2: 'https://59259fb8.ngrok.io'
-TEMPLETE : "http://example.com/page/123"
-QR2URL : 'https://97c933f7.ngrok.io/qr2url'

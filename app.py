@@ -16,7 +16,6 @@ def camome(URL = None):
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    print('aa')
     body = request.get_json()
     body2 = body.get("events")
 
@@ -44,7 +43,6 @@ def callback():
                 h = i.get("message")
                 try:
                     text = h["text"]
-                    print(text,ID)
         
                     if True in (x in text for x in ["かもめ"]):
                         post2one('かもめとあそびたいねー',ID)

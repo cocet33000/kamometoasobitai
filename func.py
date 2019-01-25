@@ -30,7 +30,6 @@ if CHANNEL_ACCESS_TOKEN is None:
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
 
-
 ENDPOINT = config_loader.load('./config/endpoint.yml')
 #USER_LIST = config_loader.load('./config/user_list.yml')
 
@@ -58,7 +57,7 @@ def poststamp(a, b, ID):
     }
 
     requests.post(
-        ENDPOINT['PUSH_URL'],
+        ENDPOINT['POST'],
         headers=HEADER,
         data=json.dumps(data),
     ) 
