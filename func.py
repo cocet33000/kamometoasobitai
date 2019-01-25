@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
 CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
-print(CHANNEL_SECRET,CHANNEL_ACCESS_TOKEN)
+
 if CHANNEL_SECRET is None:
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
     sys.exit(1)
@@ -94,7 +94,7 @@ def post2one(post_text, ID):
     }
     
     res = requests.post(
-        ENDPOINT['POST'],
+        'https://api.line.me/v2/bot/message/push',
         headers=HEADER,
         data=json.dumps(data),
     )
