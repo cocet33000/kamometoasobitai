@@ -7,7 +7,7 @@ def camome(URL = None):
     data = request.data.decode('utf-8')
     data = json.loads(data)
     
-    if URL !=None:
+    if URL != None:
         postimage2one(URL)
     poststamp('11537','52002741')
 
