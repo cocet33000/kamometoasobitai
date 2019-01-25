@@ -1,6 +1,5 @@
 flask
 line-bot-sdk
 requests
-clova-cek-sdk 
 requests_oauthlib
 pyyaml
