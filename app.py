@@ -34,9 +34,11 @@ def callback():
                 print('おかえり')
                 post2one('お帰りなさいませ！',ID)
                 poststamp('11537','52002736',ID)
+                ask_registration(ID)
             else:
                 print('新規ユーザ')
                 post2one('初めまして',ID)
+                ask_registration(ID)
 
         else:
             if(types == "message"):
@@ -64,9 +66,11 @@ def callback():
                 h = i.get("postback")
                 data = h["data"]
         
-           #     if(data == TALK_TEMPLETE['M1']['TYPE1']['DATA']): #'ask_youken'
-           #         post2admin(TALK_TEMPLETE['M1']['TYPE1']['RET'])
-           #         overwride(TALK_TEMPLETE['M1']['TYPE1']['DATA'],'default')
+                if(data == 'notification'): 
+                    registration(ID, True)
+                
+                elif(data == 'no notification'): 
+                    registration(ID, False)
         
     return 'OK'
 

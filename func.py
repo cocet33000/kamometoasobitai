@@ -2,6 +2,7 @@ import time
 import os
 import requests
 import json
+import sys
 from flask import Flask, request,jsonify
 from linebot import ( LineBotApi,
     WebhookHandler
@@ -31,12 +32,52 @@ line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
 
 ENDPOINT = config_loader.load('./config/endpoint.yml')
-#USER_LIST = config_loader.load('./config/user_list.yml')
+USER_LIST = config_loader.load('./config/user_list.yml')
 
 HEADER = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer %s' % CHANNEL_ACCESS_TOKEN
 }
+
+def registration(ID, status):
+    USER_LIST[ID] = status
+    onfig_loader.dump(USER_LIST,'config/user_list.yml')
+
+
+def ask_registration(ID):
+    data = {
+        "to": ID,
+        "messages": [
+            {
+                "type": "template",
+                "altText": "通知設定",
+                "template": {
+                    "type": "buttons",
+                    "text": "かもめがきたらつうちする？",
+                    "actions": [
+                        {
+                            "type": "postback",
+                            "label": "はい",
+                            "text": "はい",
+                            "data": "notification",
+                        },
+                        {
+                            "type": "postback",
+                            "label": "いいえ",
+                            "text": "いいえ",
+                            "data": "no notification",
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+
+    requests.post(
+        ENDPOINT['PUSH_URL'],
+        headers=HEADER,
+        data=json.dumps(data),
+    )
 
 def beacon_action(action, ID):
     if(action == "enter"):
