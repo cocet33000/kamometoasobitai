@@ -1,4 +1,5 @@
-import time 
+import time
+from datetime import datetime 
 import os
 import requests
 import json
@@ -63,7 +64,8 @@ def nortification(text):
     print(res)
 
 def registration(ID, status):
-    USER_LIST[ID] = status
+    USER_LIST[ID]['STATUS'] = status
+    USER_LIST[ID]['TIME'] = datetime.now()
     config_loader.dump(USER_LIST,'config/user_list.yml')
 
     if status == 'ON':
