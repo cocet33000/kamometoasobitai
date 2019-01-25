@@ -43,6 +43,11 @@ def registration(ID, status):
     USER_LIST[ID] = status
     onfig_loader.dump(USER_LIST,'config/user_list.yml')
 
+    if status == 'ON':
+        post2one('つうちします', ID)
+    else:
+        post2one('つうちをやめます', ID)
+
 
 def ask_registration(ID):
     data = {

@@ -55,10 +55,10 @@ def callback():
                     elif (text == "aaa"):
                         post2one('iii',ID)
                     
-                    else:
-                        post2one("意味がわかりません", ID)
-                        print(ID)
-                        poststamp(11537, 52002756, ID)
+                    #else:
+                    #    post2one("意味がわかりません", ID)
+                    #    print(ID)
+                    #    poststamp(11537, 52002756, ID)
                 except:
                     None
         
