@@ -12,6 +12,7 @@ def camome(URL = None):
 
 @app.route("/callback", methods=['POST'])
 def callback():
+    print('aa')
     body = request.get_json()
     body2 = body.get("events")
 
