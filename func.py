@@ -22,13 +22,6 @@ CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
 
 
 ENDPOINT = config_loader.load('./config/endpoint.yml')
-#IMAGE_FILES = config_loader.load('./config/images.yml')
-#TALK_TEMPLETE = config_loader.load('./config/talk_templete.yml')
-#PASSWORD_TEMPLETE = config_loader.load('./config/password.yml')
-#LOGIN = config_loader.load('./config/login.yml')
-#PASS_SUCCESS = config_loader.load('./config/pass_success.yml')
-#TEMPLETE = config_loader.load('./config/templete.yml')
-
 #USER_LIST = config_loader.load('./config/user_list.yml')
 
 HEADER = {
@@ -60,7 +53,6 @@ def poststamp(a, b, ID):
         data=json.dumps(data),
     )
 
-#def okaeri(ID):
 
 def postimage2one(image_url, ID):
     data = {
@@ -143,38 +135,38 @@ def post2one(post_text, ID):
 #    )
 #
 
-def ask_call(ID):
-    data = {
-        "to": ID,
-        "messages": [
-            {
-                "type": "template",
-                "altText": "スナップショットのテンプレート",
-                "template": {
-                    "type": "buttons",
-                    "text": "LINE通話を始めますか？",
-                    "actions": [
-                        {
-                            "type": "postback",
-                            "label": "はい",
-                            "text": "はい",
-                            "data": "start call",
-                        },
-                        {
-                            "type": "postback",
-                            "label": "いいえ",
-                            "text": "いいえ",
-                            "data": "no",
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-
-    requests.post(
-        ENDPOINT['PUSH_URL'],
-        headers=HEADER,
-        data=json.dumps(data),
-    )
-
+#def ask_call(ID):
+#    data = {
+#        "to": ID,
+#        "messages": [
+#            {
+#                "type": "template",
+#                "altText": "スナップショットのテンプレート",
+#                "template": {
+#                    "type": "buttons",
+#                    "text": "LINE通話を始めますか？",
+#                    "actions": [
+#                        {
+#                            "type": "postback",
+#                            "label": "はい",
+#                            "text": "はい",
+#                            "data": "start call",
+#                        },
+#                        {
+#                            "type": "postback",
+#                            "label": "いいえ",
+#                            "text": "いいえ",
+#                            "data": "no",
+#                        }
+#                    ]
+#                }
+#            }
+#        ]
+#    }
+#
+#    requests.post(
+#        ENDPOINT['PUSH_URL'],
+#        headers=HEADER,
+#        data=json.dumps(data),
+#    )
+#

@@ -1,5 +1,9 @@
 from func import *
 
+@app.route("/")
+def hello_world():
+    return "hello world!"
+
 @app.route("/camome", methods=['POST'])
 def camome(URL = None):
     post2one('かもめがいるよ',ID)
