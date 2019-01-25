@@ -56,11 +56,12 @@ def poststamp(a, b, ID):
         ]
     }
 
-    requests.post(
+    res = requests.post(
         ENDPOINT['POST'],
         headers=HEADER,
         data=json.dumps(data),
-    ) 
+    )
+    print(res)
 
 def postimage2one(image_url, ID):
     data = {
@@ -91,12 +92,13 @@ def post2one(post_text, ID):
             }
         ]
     }
-
-    requests.post(
+    
+    res = requests.post(
         ENDPOINT['POST'],
-        data=json.dumps(data),
         headers=HEADER,
+        data=json.dumps(data),
     )
+    print(res)
 
 
 #def notification(name, ID=):
