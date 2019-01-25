@@ -44,6 +44,7 @@ def callback():
                 h = i.get("message")
                 try:
                     text = h["text"]
+                    print(text,ID)
         
                     if True in (x in text for x in ["かもめ"]):
                         post2one('かもめとあそびたいねー',ID)
