@@ -39,32 +39,10 @@ HEADER = {
 def beacon_action(action, ID):
     if(action == "enter"):
         print("becon,enter")
-        if(ID in USER_LIST):
-            name = USER_LIST[ID]
-            if(ID != ADMIN_ID):
-                # to ADMIN
-                post2admin(name + "が帰宅しました")
-                poststamp('11537','52002741')
-                # to YOUSER
-                post2one("おかえりなさい、待ってたよ！！", ID)
-                poststamp('11537','52002736',ID)
-            else:
-                # to ADMIN
-                post2one(name + "おかえりなさいませ。今日は荷物が届いていますよ。", ID)
-                poststamp('11537','52002736',ID)
-
     else:
         print("becon,leave")
-        if(ID in USER_LIST):
-            name = USER_LIST[ID]
-            # to ADMIN
-            post2admin(name + "がおでかけみたいです")
-            poststamp('11537','52002741')
-            # to YOUSER
-            post2one("行ってらっしゃい！良い1日になりますように", ID)
-            poststamp('11537','52002736',ID)
 
-def poststamp(a, b, ID = ADMIN_ID):
+def poststamp(a, b, ID):
     data = {
         "to": ID,
         "messages": [
@@ -84,7 +62,7 @@ def poststamp(a, b, ID = ADMIN_ID):
 
 #def okaeri(ID):
 
-def postimage2one(image_url, ID = ADMIN_ID):
+def postimage2one(image_url, ID):
     data = {
         "to": ID,
         "messages": [
@@ -121,7 +99,7 @@ def post2one(post_text, ID):
     )
 
 
-#def notification(name, ID=ADMIN_ID):
+#def notification(name, ID=):
 #    path = ENDPOINT['RASPI2'] + '/images/' + 'comehome.jpg'
 #    postimage2one(path,ID)
 #    data = {
