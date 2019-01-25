@@ -38,6 +38,7 @@ def callback():
         else:
             if(types == "message"):
                 h = i.get("message")
+                print(h)
                 text = h["text"]
         
                 if True in (x in text for x in ["かもめ"]):
