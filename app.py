@@ -55,6 +55,7 @@ def callback():
                     
                     else:
                         post2one("意味がわかりません", ID)
+                        print(ID)
                         poststamp(11537, 52002756, ID)
                 except:
                     None
