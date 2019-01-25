@@ -42,21 +42,23 @@ def callback():
         else:
             if(types == "message"):
                 h = i.get("message")
-                print(h)
-                text = h["text"]
+                try:
+                    text = h["text"]
         
-                if True in (x in text for x in ["かもめ"]):
-                    post2one('かもめとあそびたいねー',ID)
+                    if True in (x in text for x in ["かもめ"]):
+                        post2one('かもめとあそびたいねー',ID)
         
-                elif True in (x in text for x in ["からす"]):
-                    post2one('からすともなかよくね',ID)
-                
-                elif (text == "aaa"):
-                    post2one('iii',ID)
-                
-                else:
-                    post2one("意味がわかりません", ID)
-                    poststamp(11537, 52002756, ID)
+                    elif True in (x in text for x in ["からす"]):
+                        post2one('からすともなかよくね',ID)
+                    
+                    elif (text == "aaa"):
+                        post2one('iii',ID)
+                    
+                    else:
+                        post2one("意味がわかりません", ID)
+                        poststamp(11537, 52002756, ID)
+                except:
+                    None
         
             elif(types == "postback"):
                 h = i.get("postback")
