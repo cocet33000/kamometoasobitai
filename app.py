@@ -68,6 +68,12 @@ def callback():
         
     return 'OK'
 
+@handler.add(MessageEvent, message=TextMessage)
+def message_text(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text)
+    )     
 if __name__ == "__main__":
     port = int(os.getenv('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
