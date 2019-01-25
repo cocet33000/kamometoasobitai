@@ -6,7 +6,7 @@ def hello_world():
 
 @app.route("/camome", methods=['POST'])
 def camome(URL = None):
-    post2one('かもめがいるよ',ID)
+    nortification('かもめがいるよ')
     data = request.data.decode('utf-8')
     data = json.loads(data)
     
@@ -32,12 +32,12 @@ def callback():
         elif(types == "follow"):
             if ID in USER_LIST:
                 print('おかえり')
-                post2one('お帰りなさいませ！',ID)
+                post2one('おかえり',ID)
                 poststamp('11537','52002736',ID)
                 ask_registration(ID)
             else:
                 print('新規ユーザ')
-                post2one('初めまして',ID)
+                post2one('はじめまして',ID)
                 ask_registration(ID)
 
         else:
@@ -69,7 +69,7 @@ def callback():
                 if(data == 'notification'): 
                     registration(ID, 'ON')
                 
-                elif(data == 'no_notification'): 
+                elif(data == 'no notification'): 
                     registration(ID, 'OFF')
         
     return 'OK'

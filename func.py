@@ -38,6 +38,8 @@ HEADER = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer %s' % CHANNEL_ACCESS_TOKEN
 }
+def nortification(aa):
+    None
 
 def registration(ID, status):
     USER_LIST[ID] = status
@@ -70,7 +72,7 @@ def ask_registration(ID):
                             "type": "postback",
                             "label": "いいえ",
                             "text": "いいえ",
-                            "data": "no_notification",
+                            "data": "no notification",
                         }
                     ]
                 }
