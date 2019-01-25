@@ -67,10 +67,10 @@ def callback():
                 data = h["data"]
         
                 if(data == 'notification'): 
-                    registration(ID, True)
+                    registration(ID, 'ON')
                 
                 elif(data == 'no notification'): 
-                    registration(ID, False)
+                    registration(ID, 'OFF')
         
     return 'OK'
 
