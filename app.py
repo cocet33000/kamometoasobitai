@@ -1,7 +1,6 @@
 from func import *
 
 @app.route("/camome", methods=['POST'])
-
 def camome(URL = None):
     post2one('かもめがいるよ',ID)
     data = request.data.decode('utf-8')
