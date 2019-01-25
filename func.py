@@ -17,8 +17,8 @@ import io
 
 app = Flask(__name__)
 
-CHANNEL_SECRET = os.getenv('LINE_CHANNEL_SECRET')
-CHANNEL_ACCESS_TOKEN = os.getenv('LINE_CHANNEL_ACCESS_TOKEN')
+CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
+CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
 
 
 ENDPOINT = config_loader.load('./config/endpoint.yml')
