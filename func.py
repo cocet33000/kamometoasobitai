@@ -75,11 +75,12 @@ def postimage2one(image_url, ID):
         ]
     }
 
-    requests.post(
+    res = requests.post(
         ENDPOINT['POST'],
         data=json.dumps(data),
         headers=HEADER,
     )
+    print(res)
 
 
 def post2one(post_text, ID):
