@@ -3,14 +3,14 @@ import os
 import requests
 import json
 from flask import Flask, request,jsonify
-#from linebot import ( LineBotApi,
-#    WebhookHandler
-#)
-#from linebot.models import (
-#    MessageEvent,
-#    TextMessage,
-#    TextSendMessage,
-#)
+from linebot import ( LineBotApi,
+    WebhookHandler
+)
+from linebot.models import (
+    MessageEvent,
+    TextMessage,
+    TextSendMessage,
+)
 
 from util import config_loader
 import io
