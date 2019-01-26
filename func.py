@@ -41,10 +41,10 @@ HEADER = {
 }
 
 def renew():
-    now = datetime.now()
+    now = datetime.now().strftime("%Y/%m/%d %H:%M")
+    now = datetime.strptime(now, '%Y-%m-%d %H:%M')
     for user in USER_LIST:
-        print(USER_LIST[user]['TIME'])
-        date = datetime.strptime(USER_LIST[user]['TIME'], '%Y-%m-%d %H:%M:%S')
+        date = datetime.strptime(USER_LIST[user]['TIME'], '%Y-%m-%d %H:%M')
         print(date)
         print(date - now)
 
