@@ -1,6 +1,6 @@
 from func import *
 
-@app.route("/camome", methods=['POST'])
+@app.route("/kamome", methods=['POST'])
 def camome(URL=None):
     nortification('かもめがいるよ')
 

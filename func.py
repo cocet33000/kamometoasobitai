@@ -46,7 +46,7 @@ def renew():
     for user in USER_LIST:
         date = datetime.strptime(USER_LIST[user]['TIME'], '%Y-%m-%d %H:%M')
         diff = now - date
-
+        print(diff)
         try:
             diff_hour = diff.hour
             USER_LIST[user]['STATUS'] = 'OFF'
@@ -61,7 +61,6 @@ def nortification(text):
     for user in USER_LIST:
         if USER_LIST[user]['STATUS'] == 'ON':
             IDs.append(user)
-    print(IDs)
     data = {
         "to": IDs,
         "messages": [
