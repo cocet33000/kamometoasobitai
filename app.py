@@ -1,6 +1,5 @@
 from func import *
 
-
 @app.route("/camome", methods=['POST'])
 def camome(URL=None):
     nortification('かもめがいるよ')
@@ -80,19 +79,5 @@ def message_text(event):
 
 
 if __name__ == "__main__":
-    app = Flask(__name__)
-
-    CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
-    CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
-
-    if CHANNEL_SECRET is None:
-        print('Specify LINE_CHANNEL_SECRET as environment variable.')
-        sys.exit(1)
-    if CHANNEL_ACCESS_TOKEN is None:
-        print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
-        sys.exit(1)
-
-    line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-    handler = WebhookHandler(CHANNEL_SECRET)
     port = int(os.getenv('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
