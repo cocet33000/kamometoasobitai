@@ -8,13 +8,17 @@ def kamome(URL=None):
     if URL != None:
         postimage2one(URL)
 
+    return('OK')
+
 
 @app.route("/karasu", methods=['POST'])
 def karasu():
     print(request)
     print('request.data: ', request.data)
+    print(request.data['file'])
     
     nortification('か、からすがいるよ！')
+    return('OK')
 
 
 
