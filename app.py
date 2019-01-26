@@ -19,7 +19,7 @@ def karasu():
     pil_img.save('save.png')
 
     nortification('か、からすがいるよ！')
-    nortification_img('save.png')
+    nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
 
 
