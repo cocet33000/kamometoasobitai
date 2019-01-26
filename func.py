@@ -57,28 +57,30 @@ HEADER = {
 # モデル作成
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(80), unique=True)
+    ID = db.Column(db.String(80), unique=True)
+    status = db.Column(db.String(80), unique=True)
+    time = db.Column(db.Datetime, unique=True)
 
-    def __init__(self, username, email):
-        self.username = username
-        self.email = email
+    def __init__(self, ID, status, time):
+        self.ID = ID
+        self.status = status
+        self.time = time
 
     def __repr__(self):
         return '<User %r>' % self.username
-
-class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    tasks = db.Column(db.String(80))
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-
-    def __init__(self, tasks, user_id):
-        self.tasks = tasks
-        self.user_id = user_id
-
-    def __repr__(self):
-        return '<Task %r>' % self.tasks
-
+#
+#class Task(db.Model):
+#    id = db.Column(db.Integer, primary_key=True)
+#    tasks = db.Column(db.String(80))
+#    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+#
+#    def __init__(self, tasks, user_id):
+#        self.tasks = tasks
+#        self.user_id = user_id
+#
+#    def __repr__(self):
+#        return '<Task %r>' % self.tasks
+#
 
 def renew():
     print(USER_LIST)
