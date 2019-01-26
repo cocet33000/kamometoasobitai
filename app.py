@@ -45,7 +45,6 @@ def callback():
                     text = h["text"]
 
                     if True in (x in text for x in ["かもめ"]):
-                        print('camome')
                         nortification('かもめがいるよ')
 
                     elif True in (x in text for x in ["からす"]):

@@ -42,9 +42,8 @@ HEADER = {
 
 def renew():
     now = datetime.now()
-    print(now)
-    for user in user_list:
-        print(user_list[user]['TIME'])
+    for user in USER_LIST:
+        print(USER_LIST[user]['TIME'])
         print(now)
         print(user_list[user]['TIME'] - now)
 
