@@ -1,6 +1,5 @@
 from func import *
 
-
 #ビーコンに近ずいた時の検証用エンドポイント 
 @app.route("/welcome", methods=['POST'])
 def welcome(URL=None):
