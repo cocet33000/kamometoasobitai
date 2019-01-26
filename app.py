@@ -2,6 +2,7 @@ from func import *
 
 @app.route("/kamome", methods=['POST'])
 def kamome(URL=None):
+    change_situation('kamome')
     data = request.data.decode('utf-8')
     data = json.loads(data)
     im = np.array(data)
@@ -16,6 +17,7 @@ def kamome(URL=None):
 
 @app.route("/karasu", methods=['POST'])
 def karasu():
+    change_situation('karasu')
     data = request.data.decode('utf-8')
     data = json.loads(data)
     im = np.array(data)
