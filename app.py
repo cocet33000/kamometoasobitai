@@ -17,8 +17,12 @@ def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
     data = data['file'][2:-1]
-    print(data)
-    
+    img_binary = base64.b64decode(data)
+    jpg=np.frombuffer(img_binary,dtype=np.uint8)
+    print(jpg)
+    print(type(jpg))
+
+
     nortification('か、からすがいるよ！')
     return('OK')
 
