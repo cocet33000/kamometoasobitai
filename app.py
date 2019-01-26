@@ -4,12 +4,10 @@ from func import *
 def kamome(URL=None):
     data = request.data.decode('utf-8')
     data = json.loads(data)
-    
-    print(data)
+    data = data['file']
+    print(data.decode())
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
 
-    if URL != None:
-        postimage2one(URL)
 
     return('OK')
 
