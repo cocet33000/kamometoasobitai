@@ -2,6 +2,7 @@ from func import *
 
 @app.route("/kamome", methods=['POST'])
 def kamome(URL=None):
+    print(request.data)
     nortification('かもめがいるよーー！！いそいでみにきてーー！！')
 
     if URL != None:
@@ -10,6 +11,7 @@ def kamome(URL=None):
 
 @app.route("/karasu", methods=['POST'])
 def karasu(URL=None):
+    print(request.data)
     nortification('か、からすがいるよ！')
 
     if URL != None:
