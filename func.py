@@ -38,7 +38,8 @@ if DATABASE_URL is None:
     sys.exit(1)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+#app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
