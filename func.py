@@ -45,7 +45,14 @@ def renew():
     now = datetime.strptime(now, "%Y/%m/%d %H:%M")
     for user in USER_LIST:
         date = datetime.strptime(USER_LIST[user]['TIME'], '%Y-%m-%d %H:%M')
-        print(now - date)
+        diff = now - date
+
+        try:
+            diff_hour = diff.hour
+            USER_LIST[user]['STATUS'] = 'OFF'
+            
+        except:
+            None
 
 
 def nortification(text):
