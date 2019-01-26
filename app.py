@@ -69,14 +69,14 @@ def callback():
 
         #フォロー
         elif(types == "follow"):
-            if ID in USER_LIST:
-                print('おかえり')
-                post2one('おかえり', ID)
-                ask_registration(ID)
-            else:
-                print('新規ユーザ')
-                post2one('はじめまして', ID)
-                ask_registration(ID)
+            #if ID in USER_LIST:
+            #    print('おかえり')
+            #    post2one('おかえり', ID)
+            #    ask_registration(ID)
+            #else:
+            #    print('新規ユーザ')
+            #    post2one('はじめまして', ID)
+            #    ask_registration(ID)
             
             #データベース確認
             if not db.session.query(User).filter(User.ID == ID).count():
