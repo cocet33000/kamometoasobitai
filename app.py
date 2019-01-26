@@ -58,7 +58,7 @@ def callback():
                         nortification('かもめがいるよ')
 
                     elif True in (x in text for x in ["からす"]):
-                        post2one('からすともなかよくね', ID)
+                        nortification('からすともなかよくね', ID)
 
                     # else:
                     #    post2one("意味がわかりません", ID)
