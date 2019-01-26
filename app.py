@@ -11,10 +11,9 @@ def kamome(URL=None):
 
 @app.route("/karasu", methods=['POST'])
 def karasu():
-    data = request
-    for i in data:
-        print(i)
+    print(request)
     print('request.data: ', request.data)
+    
     nortification('か、からすがいるよ！')
 
 
