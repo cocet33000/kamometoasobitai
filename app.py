@@ -20,7 +20,7 @@ def kamome(URL=None):
     pil_img = Image.fromarray(im.astype('uint8'))
     pil_img.save('save.png')
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
-    nortification_img('https://camometoasobitai.herokuapp.com/save.png')
+   # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
 
 #カラスを検知した時のエンドポイント 
@@ -33,7 +33,7 @@ def karasu():
     pil_img = Image.fromarray(im.astype('uint8'))
     pil_img.save('save.png')
     nortification('か、からすがいるよ！')
-    nortification_img('https://camometoasobitai.herokuapp.com/save.png')
+   # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
 
 
