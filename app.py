@@ -3,7 +3,7 @@ from func import *
 @app.route("/kamome", methods=['POST'])
 def kamome(URL=None):
     print(request.data)
-    nortification('かもめがいるよーー！！いそいでみにきてーー！！')
+    nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
 
     if URL != None:
         postimage2one(URL)
