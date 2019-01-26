@@ -5,8 +5,6 @@ def kamome(URL=None):
     data = request.data.decode('utf-8')
     data = json.loads(data)
     print(data)
-    data = data['file']
-    print(data.decode())
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
 
 
@@ -17,8 +15,10 @@ def kamome(URL=None):
 def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
-    print(data)
-
+    im = np.ndarray(data)
+    pil_img = Image.fromarray(im)
+    pil_img.save('save.png')
+    print(pil_img)
 
     nortification('か、からすがいるよ！')
     return('OK')

@@ -2,6 +2,7 @@ import time
 from datetime import datetime 
 import os
 import requests
+from PIL import Image
 import json
 import sys
 from flask import Flask, request,jsonify
