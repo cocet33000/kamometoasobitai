@@ -1,6 +1,6 @@
 from func import *
 
-@appkroute("/kamome", methods=['POST'])
+@app.route("/kamome", methods=['POST'])
 def kamome(URL=None):
     nortification('かもめがいるよーー！！いそいでみにきてーー！！')
 
