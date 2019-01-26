@@ -5,3 +5,5 @@ requests_oauthlib
 pyyaml
 numpy
 pillow
+flask-sqlalchemy
+psycopg2
