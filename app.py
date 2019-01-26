@@ -79,14 +79,15 @@ def callback():
             #    ask_registration(ID)
             
             #データベース確認
-            if not db.session.query(User).filter(User.ID == ID).count():
-                print('{}さんが入船しました'.format(ID))
-                post2one('おかえり', ID)
-                ask_registration(ID)
-            else:
-                print('新規ユーザ{}'.format(ID))
-                post2one('はじめまして', ID)
-                ask_registration(ID)
+            print(db.session.query(User))
+            #if not db.session.query(User).filter(User.ID == ID).count():
+            #    print('{}さんが入船しました'.format(ID))
+            #    post2one('おかえり', ID)
+            #    ask_registration(ID)
+            #else:
+            #    print('新規ユーザ{}'.format(ID))
+            #    post2one('はじめまして', ID)
+            #    ask_registration(ID)
 
 
         #フォロー解除
