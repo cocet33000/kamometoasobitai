@@ -57,19 +57,18 @@ HEADER = {
 # モデル作成
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    ID = db.Column(db.String(80), unique=True)
+    name = db.Column(db.String(80), unique=True)
     status = db.Column(db.String(80), unique=True)
     time = db.Column(db.DATETIME, unique=True)
 
     def __init__(self, ID, status, time):
-        self.ID = ID
+        self.name = ID
         self.status = status
         self.time = time
 
     def __repr__(self):
-        return '<User %r>' % self.ID
+        return '<User %r>' % self.name
 
-userlist = User()
 
 def renew():
     print(USER_LIST)
@@ -122,7 +121,7 @@ def registration2(ID, status):
     print(ID, status, time)
     
     #データベースに追加
-    reg = user(ID, status, time)
+    reg = User(ID, status, time)
     db.session.add(reg)
     db.session.commit()
 
