@@ -19,7 +19,7 @@ def karasu():
     pil_img.save('save.png')
 
     nortification('か、からすがいるよ！')
-    postimage2one('save.png', ID)
+    nortification_img('save.png')
     return('OK')
 
 

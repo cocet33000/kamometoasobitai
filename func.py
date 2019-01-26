@@ -160,7 +160,7 @@ def poststamp(a, b, ID):
     )
     print(res)
 
-def nortification_img(image_url, ID):
+def nortification_img(image_url):
     IDs = []
     for user in USER_LIST:
         if USER_LIST[user]['STATUS'] == 'ON':
