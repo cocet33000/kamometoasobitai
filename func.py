@@ -132,10 +132,10 @@ def registration(ID, status):
     config_loader.dump(USER_LIST,'config/user_list.yml')
     print(USER_LIST)
     if status == 'ON':
-        post2one('つうちします', ID)
+        post2one('通知させていただきます。良い船旅を！', ID)
         poststamp('11537','52002736',ID)
     else:
-        post2one('つうちをやめます', ID)
+        post2one('通知機能をオフにします、ごゆっくり。', ID)
 
 
 def ask_registration(ID, text='かもめがきたらつうちする？'):
@@ -175,9 +175,9 @@ def ask_registration(ID, text='かもめがきたらつうちする？'):
 
 def beacon_action(action, ID):
     if(action == "enter"):
-        post2one('ようこそ！さんふらわあへ！！！', ID)
+        post2one('ようこそ！さんふらわあへ！！  またのご乗船ありがとうございます！', ID)
         postimage2one('https://www.ferry-sunflower.co.jp/route/osaka-beppu/time/img/img-ship.jpg', ID)
-        ask_registration(ID)
+        ask_registration(ID, '前回の船旅はいかがでした？今回もかもめが来たら通知してもよろしいでしょうか？')
         print("becon,enter")
    # else:
    #     ask_registration(ID)
