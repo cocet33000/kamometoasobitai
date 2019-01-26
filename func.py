@@ -19,11 +19,10 @@ import base64
 import numpy as np
 import io
 from util import config_loader
-#from flask.ext.sqlalchemy import SQLAlchemy
-
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-#db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+db = SQLAlchemy(app)
 
 CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
 CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
@@ -48,31 +47,31 @@ HEADER = {
 }
 
 #
-## モデル作成
-#class User(db.Model):
-#    id = db.Column(db.Integer, primary_key=True)
-#    username = db.Column(db.String(80), unique=True)
-#    email = db.Column(db.String(80), unique=True)
-#
-#    def __init__(self, username, email):
-#        self.username = username
-#        self.email = email
-#
-#    def __repr__(self):
-#        return '<User %r>' % self.username
-#
-#class Task(db.Model):
-#    id = db.Column(db.Integer, primary_key=True)
-#    tasks = db.Column(db.String(80))
-#    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-#
-#    def __init__(self, tasks, user_id):
-#        self.tasks = tasks
-#        self.user_id = user_id
-#
-#    def __repr__(self):
-#        return '<Task %r>' % self.tasks
-#
+# モデル作成
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(80), unique=True)
+
+    def __init__(self, username, email):
+        self.username = username
+        self.email = email
+
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tasks = db.Column(db.String(80))
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+
+    def __init__(self, tasks, user_id):
+        self.tasks = tasks
+        self.user_id = user_id
+
+    def __repr__(self):
+        return '<Task %r>' % self.tasks
+
 
 def renew():
     print(USER_LIST)
