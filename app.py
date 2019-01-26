@@ -80,6 +80,7 @@ def callback():
             
             registration2(ID, 'ON')
             
+            print(db.session.querry(User))
             #データベース確認
             datas = db.session.query(User).all()
             print(datas)
