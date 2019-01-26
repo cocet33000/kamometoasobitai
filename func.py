@@ -138,7 +138,7 @@ def registration(ID, status):
         post2one('つうちをやめます', ID)
 
 
-def ask_registration(ID):
+def ask_registration(ID, text = 'かもめがきたらつうちする？'):
     data = {
         "to": ID,
         "messages": [
@@ -147,7 +147,7 @@ def ask_registration(ID):
                 "altText": "かもめとあそびたいよね？",
                 "template": {
                     "type": "buttons",
-                    "text": "かもめがきたらつうちする？",
+                    "text": ", text
                     "actions": [
                         {
                             "type": "postback",

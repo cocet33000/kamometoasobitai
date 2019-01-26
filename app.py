@@ -3,9 +3,9 @@ from func import *
 @app.route("/welcome", methods=['POST'])
 def welcome(URL=None):
     ID = 'U7b72725b2f60610adb9c9798949cb360'
-    post2one('ようこそ！さんふらわあへ！！！', ID)
+    post2one('ようこそ！さんふらわあへ！！またのご乗船誠にありがとうございます！！', ID)
     postimage2one('https://www.ferry-sunflower.co.jp/route/osaka-beppu/time/img/img-ship.jpg', ID)
-    ask_registration(ID)
+    ask_registration(ID, '前回はかもめと遊ぶことはできましたか？？今回もかもめが来たら通知してもよろしいでしょうか？')
     
     return('OK')
 
