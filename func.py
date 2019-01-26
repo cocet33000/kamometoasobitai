@@ -59,12 +59,13 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
     status = db.Column(db.String(80), unique=True)
-    time = db.Column(db.DateTime, unique=True)
+    #time = db.Column(db.DateTime, unique=True)
 
-    def __init__(self, ID, status, time):
+    #def __init__(self, ID, status, time):
+    def __init__(self, ID, status):
         self.name = ID
         self.status = status
-        self.time = time
+    #    self.time = time
 
     def __repr__(self):
         return '<User %r>' % self.name
@@ -117,12 +118,12 @@ def change_situation(situation):
 
 
 def registration2(ID, status):
-    time = datetime.now()
-    print(ID, status, time)
+    #time = datetime.now()
+    #print(ID, status, time)
     
     #データベースに追加
-    reg = User(ID, status, time)
-    #reg = User(ID, status)
+    #reg = User(ID, status, time)
+    reg = User(ID, status)
     db.session.add(reg)
     db.session.commit()
 
