@@ -50,13 +50,19 @@ def callback():
                 try:
                     text = h["text"]
 
-                    if True in (x in text for x in ["かもめ"]):
-                        nortification('かもめがいるよ')
+                    if text == 'かもめがきたらおしえて！':
+                        registration(ID, 'ON')
 
-                    elif True in (x in text for x in ["からす"]):
-                        nortification('からすともなかよくね', ID)
+                    elif text == 'かもめがきてもだまってて！':
+                        registration(ID, 'OFF')
 
-                    # else:
+                    #if True in (x in text for x in ["かもめ"]):
+                    #    nortification('かもめがいるよ')
+
+                    #elif True in (x in text for x in ["からす"]):
+                    #    nortification('からすともなかよくね', ID)
+
+                    ## else:
                     #    post2one("意味がわかりません", ID)
                     #    print(ID)
                     #    poststamp(11537, 52002756, ID)
