@@ -4,6 +4,7 @@ from func import *
 def kamome(URL=None):
     data = request.data.decode('utf-8')
     data = json.loads(data)
+    
     print(data)
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
 
