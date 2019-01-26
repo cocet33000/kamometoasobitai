@@ -58,6 +58,7 @@ def renew():
 
 def nortification(text):
     renew()
+    print(USER_LIST)
     IDs = []
     for user in USER_LIST:
         if USER_LIST[user]['STATUS'] == 'ON':
