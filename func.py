@@ -155,6 +155,30 @@ def poststamp(a, b, ID):
     )
     print(res)
 
+def nortification_img(image_url, ID):
+    IDs = []
+    for user in USER_LIST:
+        if USER_LIST[user]['STATUS'] == 'ON':
+            IDs.append(user)
+    
+    data = {
+        "to": IDs,
+        "messages": [
+            {
+                "type": "image",
+                "originalContentUrl": image_url,
+                "previewImageUrl": image_url,
+            }
+        ]
+    }
+
+    res = requests.post(
+        ENDPOINT['MULTICAST'],
+        data=json.dumps(data),
+        headers=HEADER,
+    )
+    print(res)
+
 def postimage2one(image_url, ID):
     data = {
         "to": ID,
