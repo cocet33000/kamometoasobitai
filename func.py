@@ -45,7 +45,7 @@ def renew():
     now = datetime.now().strftime("%Y/%m/%d %H:%M")
     now = datetime.strptime(now, "%Y/%m/%d %H:%M")
     for user in USER_LIST:
-        date = datetime.strptime(USER_LIST[user]['TIME'], '%Y-%m-%d %H:%M')
+        date = datetime.strptime(USER_LIST[user]['TIME'], '%Y/%m/%d %H:%M')
         diff = now - date
         print(diff)
         try:
