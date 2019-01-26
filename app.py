@@ -1,5 +1,14 @@
 from func import *
 
+@app.route("/welcome", methods=['POST'])
+def welcome(URL=None):
+    ID = 'U7b72725b2f60610adb9c9798949cb360'
+    post2one('ようこそ！さんふらわあへ！！！', ID)
+    postimage2one('https://www.ferry-sunflower.co.jp/route/osaka-beppu/time/img/img-ship.jpg', ID)
+    ask_registration(ID)
+    
+    return('OK')
+
 @app.route("/kamome", methods=['POST'])
 def kamome(URL=None):
     change_situation('kamome')
