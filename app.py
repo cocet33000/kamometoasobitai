@@ -15,6 +15,7 @@ def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
     im = np.array(data)
+    print(type(im))
     pil_img = Image.fromarray(im)
     pil_img.save('save.png')
     print(pil_img)
