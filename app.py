@@ -16,8 +16,8 @@ def kamome(URL=None):
 def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
-    data = data['file']
-    print(data.decode())
+    data = data['file'][2:]
+    print(b(data[:-1]).decode())
     
     nortification('か、からすがいるよ！')
     return('OK')
