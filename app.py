@@ -15,7 +15,7 @@ def kamome(URL=None):
 def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
-    im = np.ndarray(data)
+    im = np.array(data)
     pil_img = Image.fromarray(im)
     pil_img.save('save.png')
     print(pil_img)
