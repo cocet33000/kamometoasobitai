@@ -14,8 +14,11 @@ from linebot.models import (
     TextSendMessage,
 )
 
-from util import config_loader
+import cv2
+import base64
+import numpy as np
 import io
+from util import config_loader
 
 app = Flask(__name__)
 
@@ -131,6 +134,7 @@ def ask_registration(ID):
 def beacon_action(action, ID):
     if(action == "enter"):
         post2one('ようこそ！さんふらわあへ！！！', ID)
+        postimage2one('https://www.ferry-sunflower.co.jp/route/osaka-beppu/time/img/img-ship.jpg', ID)
         ask_registration(ID)
         print("becon,enter")
    # else:
