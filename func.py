@@ -67,20 +67,8 @@ class User(db.Model):
         self.time = time
 
     def __repr__(self):
-        return '<User %r>' % self.username
-#
-#class Task(db.Model):
-#    id = db.Column(db.Integer, primary_key=True)
-#    tasks = db.Column(db.String(80))
-#    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-#
-#    def __init__(self, tasks, user_id):
-#        self.tasks = tasks
-#        self.user_id = user_id
-#
-#    def __repr__(self):
-#        return '<Task %r>' % self.tasks
-#
+        return '<User %r>' % self.ID
+
 
 def renew():
     print(USER_LIST)
