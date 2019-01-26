@@ -38,6 +38,12 @@ def karasu():
     return('OK')
 
 
+@app.route("/etc", methods=['POST'])
+def etc(URL=None):
+    change_situation('etc')
+    return('OK')
+
+
 @app.route("/situation", methods=['GET'])
 def situation():
     return(SITUATION['situation'])

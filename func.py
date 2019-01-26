@@ -136,6 +136,7 @@ def registration(ID, status):
         poststamp('11537','52002736',ID)
     else:
         post2one('通知機能をオフにします、ごゆっくり。', ID)
+        poststamp('11537','52002771 ',ID)
 
 
 def ask_registration(ID, text='かもめがきたらつうちする？'):
