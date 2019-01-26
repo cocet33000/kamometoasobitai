@@ -2,7 +2,9 @@ from func import *
 
 @app.route("/kamome", methods=['POST'])
 def kamome(URL=None):
-    print(request.data)
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+    print(data)
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
 
     if URL != None:
@@ -13,7 +15,6 @@ def kamome(URL=None):
 
 @app.route("/karasu", methods=['POST'])
 def karasu():
-    print(request)
     print('request.data: ', request.data)
     print(request.data['file'])
     
