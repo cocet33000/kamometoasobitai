@@ -2,7 +2,7 @@ from func import *
 
 #ビーコンに近ずいた時の検証用エンドポイント 
 @app.route("/welcome", methods=['POST'])
-def welcome(URL=None):
+def welcome():
     ID = 'U7b72725b2f60610adb9c9798949cb360'
     post2one('ようこそ！さんふらわあへ！！  またのご乗船ありがとうございます！', ID)
     postimage2one('https://www.ferry-sunflower.co.jp/route/osaka-beppu/time/img/img-ship.jpg', ID)
@@ -12,13 +12,13 @@ def welcome(URL=None):
 
 #カモメを検知した時のエンドポイント 
 @app.route("/kamome", methods=['POST'])
-def kamome(URL=None):
+def kamome():
     change_situation('kamome')
-    data = request.data.decode('utf-8')
-    data = json.loads(data)
-    im = np.array(data)
-    pil_img = Image.fromarray(im.astype('uint8'))
-    pil_img.save('save.png')
+    #data = request.data.decode('utf-8')
+    #data = json.loads(data)
+    #im = np.array(data)
+    #pil_img = Image.fromarray(im.astype('uint8'))
+    #pil_img.save('save.png')
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
    # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
@@ -27,11 +27,11 @@ def kamome(URL=None):
 @app.route("/karasu", methods=['POST'])
 def karasu():
     change_situation('karasu')
-    data = request.data.decode('utf-8')
-    data = json.loads(data)
-    im = np.array(data)
-    pil_img = Image.fromarray(im.astype('uint8'))
-    pil_img.save('save.png')
+   # data = request.data.decode('utf-8')
+   # data = json.loads(data)
+   # im = np.array(data)
+   # pil_img = Image.fromarray(im.astype('uint8'))
+   # pil_img.save('save.png')
     nortification('か、からすがいるよ！')
    # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
