@@ -26,6 +26,9 @@ CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
 CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
 DATABASE_URL = os.getenv('DATABASE_URL')
 
+print(CHANNEL_SECRET)
+print(DATABASE_URL)
+
 
 if CHANNEL_SECRET is None:
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
