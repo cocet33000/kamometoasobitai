@@ -1,8 +1,18 @@
 from func import *
 
+@appkroute("/kamome", methods=['POST'])
+def kamome(URL=None):
+    nortification('かもめがいるよーー！！いそいでみにきてーー！！')
+
+    if URL != None:
+        postimage2one(URL)
+
+    poststamp('11537', '52002741')
+
+
 @app.route("/kamome", methods=['POST'])
-def camome(URL=None):
-    nortification('かもめがいるよ')
+def karasu(URL=None):
+    nortification('か、からすがいるよ！')
 
     if URL != None:
         postimage2one(URL)
