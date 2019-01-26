@@ -27,6 +27,10 @@ def karasu():
     return('OK')
 
 
+@app.route("/situation", methods=['GET'])
+def situation():
+    return(SITUATION['situation'])
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
