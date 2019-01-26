@@ -79,7 +79,10 @@ def callback():
             #    ask_registration(ID)
             
             #データベース確認
-            print(db.session.query(User))
+            datas = db.session.query(User).all()
+            for data in datas:
+                print(data.ID)
+            
             #if not db.session.query(User).filter(User.ID == ID).count():
             #    print('{}さんが入船しました'.format(ID))
             #    post2one('おかえり', ID)
