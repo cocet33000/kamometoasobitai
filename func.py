@@ -20,7 +20,7 @@ import numpy as np
 import io
 from util import config_loader
 from flask_sqlalchemy import SQLAlchemy
-import psycopg
+import psycopg2
 
 CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
 CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
