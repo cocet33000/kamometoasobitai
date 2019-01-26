@@ -147,7 +147,7 @@ def ask_registration(ID, text = 'かもめがきたらつうちする？'):
                 "altText": "かもめとあそびたいよね？",
                 "template": {
                     "type": "buttons",
-                    "text": ", text
+                    "text":  text
                     "actions": [
                         {
                             "type": "postback",
