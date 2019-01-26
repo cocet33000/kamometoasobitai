@@ -162,7 +162,7 @@ def ask_registration(ID, text='かもめがきたらつうちする？'):
         "messages": [
             {
                 "type": "template",
-e               "altText": "かもめとあそびたいよね？",
+                "altText": "かもめとあそびたいよね？",
                 "template": {
                     "type": "buttons",
                     "text": text,
