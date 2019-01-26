@@ -125,6 +125,24 @@ def change_situation(situation):
     config_loader.dump(USER_LIST,'config/situation.yml')
     print(SITUATION)
 
+
+def registration2(ID, status):
+    time = datetime.now()
+    print(ID, status, time)
+    
+    #データベースに追加
+    eg = User(ID, status, time)
+    db.session.add(reg)
+    db.session.commit()
+
+    if status == 'ON':
+        post2one('通知させていただきます。良い船旅を！', ID)
+        poststamp('11537','52002736',ID)
+    else:
+        post2one('通知機能をオフにします、ごゆっくり。', ID)
+        poststamp('11537','52002771 ',ID)
+
+
 def registration(ID, status):
     USER_LIST[ID] = {}
     USER_LIST[ID]['STATUS'] = status
@@ -138,14 +156,13 @@ def registration(ID, status):
         post2one('通知機能をオフにします、ごゆっくり。', ID)
         poststamp('11537','52002771 ',ID)
 
-
 def ask_registration(ID, text='かもめがきたらつうちする？'):
     data = {
         "to": ID,
         "messages": [
             {
                 "type": "template",
-                "altText": "かもめとあそびたいよね？",
+e               "altText": "かもめとあそびたいよね？",
                 "template": {
                     "type": "buttons",
                     "text": text,
