@@ -11,7 +11,8 @@ def kamome(URL=None):
 
 @app.route("/karasu", methods=['POST'])
 def karasu(URL=None):
-    print(request.data)
+    print(request)
+    print(request.FILES['file'])
     nortification('か、からすがいるよ！')
 
     if URL != None:
