@@ -55,7 +55,7 @@ HEADER = {
 
 #
 # モデル作成
-class User(db.Model):
+class Useeer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
     status = db.Column(db.String(80), unique=True)
@@ -121,7 +121,7 @@ def registration2(ID, status):
     print(ID, status, time)
     
     #データベースに追加
-    reg = User(ID, status, time)
+    reg = Useeer(ID, status, time)
     db.session.add(reg)
     db.session.commit()
 
