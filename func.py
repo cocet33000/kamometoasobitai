@@ -131,7 +131,7 @@ def registration2(ID, status):
     print(ID, status, time)
     
     #データベースに追加
-    eg = User(ID, status, time)
+    reg = User(ID, status, time)
     db.session.add(reg)
     db.session.commit()
 
