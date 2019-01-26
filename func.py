@@ -24,7 +24,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
 CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
-DATABASE_URL = os.getenv['DATABASE_URL']
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 
 if CHANNEL_SECRET is None:
