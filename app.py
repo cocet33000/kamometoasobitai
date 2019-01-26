@@ -70,12 +70,12 @@ def callback():
         elif(types == "follow"):
             if ID in USER_LIST:
                 print('おかえり')
-                post2one('おかえり', ID)
-                ask_registration(ID)
+                post2one('再登録ありがとうございます！', ID)
+                ask_registration(ID, 'かもめが来たら通知する？')
             else:
                 print('新規ユーザ')
-                post2one('はじめまして', ID)
-                ask_registration(ID)
+                post2one('はじめまして！さんふらわへようこそ！フェリーといったらかもめですよね。かもめとあそぶ、それは浪漫！', ID)
+                ask_registration(ID, 'かもめが来たら通知する？')
             
     #        registration2(ID, 'ON')
             
