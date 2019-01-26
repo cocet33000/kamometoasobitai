@@ -79,10 +79,11 @@ def nortification(text):
     print(res)
 
 def registration(ID, status):
+    USER_LIST[ID] = {}
     USER_LIST[ID]['STATUS'] = status
-    USER_LIST[ID]['TIME'] = datetime.now()
+    USER_LIST[ID]['TIME'] = datetime.now().strftime("%Y/%m/%d %H:%M")
     config_loader.dump(USER_LIST,'config/user_list.yml')
-
+    print(USER_LIST)
     if status == 'ON':
         post2one('つうちします', ID)
         poststamp('11537','52002736',ID)

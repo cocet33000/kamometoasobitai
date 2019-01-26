@@ -10,7 +10,7 @@ def kamome(URL=None):
     poststamp('11537', '52002741')
 
 
-@app.route("/kamome", methods=['POST'])
+@app.route("/karasu", methods=['POST'])
 def karasu(URL=None):
     nortification('か、からすがいるよ！')
 
