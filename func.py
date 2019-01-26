@@ -69,6 +69,7 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.ID
 
+userlist = User()
 
 def renew():
     print(USER_LIST)
@@ -121,7 +122,7 @@ def registration2(ID, status):
     print(ID, status, time)
     
     #データベースに追加
-    reg = User(ID, status, time)
+    reg = user(ID, status, time)
     db.session.add(reg)
     db.session.commit()
 
