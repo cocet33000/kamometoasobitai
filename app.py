@@ -82,8 +82,7 @@ def callback():
             
             #データベース確認
             datas = db.session.query(User).all()
-            for data in datas:
-                print(data.ID)
+            print(datas)
             
             #if not db.session.query(User).filter(User.ID == ID).count():
             #    print('{}さんが入船しました'.format(ID))
