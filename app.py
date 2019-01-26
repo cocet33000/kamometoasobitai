@@ -77,12 +77,12 @@ def callback():
             #    post2one('はじめまして', ID)
             #    ask_registration(ID)
             
-            registration2(ID, 'ON')
+    #        registration2(ID, 'ON')
             
-            print(db.session.querry(User))
+     #       print(db.session.querry(User))
             #データベース確認
-            datas = db.session.query(User).all()
-            print(datas)
+      #      datas = db.session.query(User).all()
+       #     print(datas)
             
             #if not db.session.query(User).filter(User.ID == ID).count():
             #    print('{}さんが入船しました'.format(ID))
@@ -93,7 +93,7 @@ def callback():
             #    post2one('はじめまして', ID)
             #    ask_registration(ID)
 
-
+            None
         #フォロー解除
         elif(types == "unfollow"):
             registration(ID, 'OFF')
