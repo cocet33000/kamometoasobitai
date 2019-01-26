@@ -17,7 +17,7 @@ def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
     data = data['file'][2:]
-    print(b(data[:-1]).decode())
+    print(bin(data[:-1]).decode())
     
     nortification('か、からすがいるよ！')
     return('OK')
