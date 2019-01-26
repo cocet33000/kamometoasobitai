@@ -15,12 +15,11 @@ def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
     im = np.array(data)
-    print(im.shape)
-    pil_img = Image.fromarray(im)
+    pil_img = Image.fromarray(im.astype('uint8'))
     pil_img.save('save.png')
-    print(pil_img)
 
     nortification('か、からすがいるよ！')
+    postimage2one('save.png', ID)
     return('OK')
 
 
