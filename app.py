@@ -4,6 +4,7 @@ from func import *
 def kamome(URL=None):
     data = request.data.decode('utf-8')
     data = json.loads(data)
+    print(data)
     data = data['file']
     print(data.decode())
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
@@ -16,11 +17,7 @@ def kamome(URL=None):
 def karasu():
     data = request.data.decode('utf-8')
     data = json.loads(data)
-    data = data['file'][2:-1]
-    img_binary = base64.b64decode(data)
-    jpg=np.frombuffer(img_binary,dtype=np.uint8)
-    print(jpg)
-    print(type(jpg))
+    print(data)
 
 
     nortification('か、からすがいるよ！')
