@@ -59,7 +59,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ID = db.Column(db.String(80), unique=True)
     status = db.Column(db.String(80), unique=True)
-    time = db.Column(db.DATETIME unique=True)
+    time = db.Column(db.DATETIME, unique=True)
 
     def __init__(self, ID, status, time):
         self.ID = ID
