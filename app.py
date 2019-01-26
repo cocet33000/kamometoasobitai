@@ -4,9 +4,13 @@ from func import *
 def kamome(URL=None):
     data = request.data.decode('utf-8')
     data = json.loads(data)
+    im = np.array(data)
+    pil_img = Image.fromarray(im.astype('uint8'))
+    pil_img.save('save.png')
+
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
-
-
+    nortification_img('https://camometoasobitai.herokuapp.com/save.png')
+    
     return('OK')
 
 

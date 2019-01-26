@@ -37,6 +37,7 @@ handler = WebhookHandler(CHANNEL_SECRET)
 
 ENDPOINT = config_loader.load('./config/endpoint.yml')
 USER_LIST = config_loader.load('./config/user_list.yml')
+SITUATION = config_loader.load('./config/situation.yml')
 
 HEADER = {
     'Content-Type': 'application/json',
@@ -82,6 +83,11 @@ def nortification(text):
         headers=HEADER,
     )
     print(res)
+
+def change_situation(situation):
+    SITUATION['situation'] = situation
+    config_loader.dump(USER_LIST,'config/situation.yml')
+    print(SITUATION)
 
 def registration(ID, status):
     USER_LIST[ID] = {}
