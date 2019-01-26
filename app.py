@@ -7,8 +7,6 @@ def kamome(URL=None):
     if URL != None:
         postimage2one(URL)
 
-    poststamp('11537', '52002741')
-
 
 @app.route("/karasu", methods=['POST'])
 def karasu(URL=None):
@@ -16,8 +14,6 @@ def karasu(URL=None):
 
     if URL != None:
         postimage2one(URL)
-
-    poststamp('11537', '52002741')
 
 
 @app.route("/callback", methods=['POST'])
