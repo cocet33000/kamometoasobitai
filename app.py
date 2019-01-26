@@ -68,14 +68,14 @@ def callback():
 
         #フォロー
         elif(types == "follow"):
-            #if ID in USER_LIST:
-            #    print('おかえり')
-            #    post2one('おかえり', ID)
-            #    ask_registration(ID)
-            #else:
-            #    print('新規ユーザ')
-            #    post2one('はじめまして', ID)
-            #    ask_registration(ID)
+            if ID in USER_LIST:
+                print('おかえり')
+                post2one('おかえり', ID)
+                ask_registration(ID)
+            else:
+                print('新規ユーザ')
+                post2one('はじめまして', ID)
+                ask_registration(ID)
             
     #        registration2(ID, 'ON')
             
@@ -93,7 +93,6 @@ def callback():
             #    post2one('はじめまして', ID)
             #    ask_registration(ID)
 
-            None
         #フォロー解除
         elif(types == "unfollow"):
             registration(ID, 'OFF')
@@ -149,4 +148,4 @@ def message_text(event):
 
 if __name__ == "__main__":
     port = int(os.getenv('PORT', 5000))
-    #app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)
