@@ -23,6 +23,7 @@ def kamome():
    # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
 
+
 #カラスを検知した時のエンドポイント 
 @app.route("/karasu", methods=['POST'])
 def karasu():
