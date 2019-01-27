@@ -88,6 +88,33 @@ def renew():
             None
 
 
+def nortification_stamp(a, b):
+    renew()
+    print(USER_LIST)
+    IDs = []
+    for user in USER_LIST:
+        if USER_LIST[user]['STATUS'] == 'ON':
+            IDs.append(user)
+
+    data = {
+        "to": IDs,
+        "messages": [
+            {
+                "type": 'sticker',
+                'packageId': a,
+                'stickerId': b,
+            }
+        ]
+    }
+
+    res = requests.post(
+        ENDPOINT['MULTICAST'],
+        headers=HEADER,
+        data=json.dumps(data),
+    )
+    print(res)
+
+
 def nortification(text):
     renew()
     print(USER_LIST)
