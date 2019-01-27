@@ -139,6 +139,7 @@ def nortification(text):
     )
     print(res)
 
+
 def change_situation(situation):
     SITUATION['situation'] = situation
     config_loader.dump(USER_LIST,'config/situation.yml')
