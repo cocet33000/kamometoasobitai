@@ -68,6 +68,7 @@ def callback():
 
         #フォロー
         elif(types == "follow"):
+            print(USER_LIST)
             if ID in USER_LIST:
                 print('おかえり')
                 post2one('再登録ありがとうございます！', ID)
