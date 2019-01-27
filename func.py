@@ -15,17 +15,10 @@ from linebot.models import (
     TextSendMessage,
 )
 
-import base64
-import numpy as np
-import io
 from util import config_loader
-from flask_sqlalchemy import SQLAlchemy
-import psycopg2
 
 CHANNEL_SECRET = os.getenv('LineMessageAPIChannelSecret')
 CHANNEL_ACCESS_TOKEN = os.getenv('LineMessageAPIChannelAccessToken')
-DATABASE_URL = os.getenv('DATABASE_URL')
-
 
 if CHANNEL_SECRET is None:
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
@@ -33,15 +26,8 @@ if CHANNEL_SECRET is None:
 if CHANNEL_ACCESS_TOKEN is None:
     print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
     sys.exit(1)
-if DATABASE_URL is None:
-    print('Specify DATABASE_URL as environment variable.')
-    sys.exit(1)
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-db = SQLAlchemy(app)
-print(os.environ['DATABASE_URL'])
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
 
@@ -54,23 +40,6 @@ HEADER = {
     'Authorization': 'Bearer %s' % CHANNEL_ACCESS_TOKEN
 }
 
-#
-# モデル作成
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True)
-    status = db.Column(db.String(80), unique=True)
-    #time = db.Column(db.DateTime, unique=True)
-
-    #def __init__(self, ID, status, time):
-    def __init__(self, ID, status):
-        self.name = ID
-        self.status = status
-    #    self.time = time
-
-    def __repr__(self):
-        return '<User %r>' % self.name
-
 
 def renew():
     print(USER_LIST)
@@ -81,9 +50,8 @@ def renew():
         diff = now - date
         print(diff)
         try:
-            diff_hour = diff.hour
+            diff.hour
             USER_LIST[user]['STATUS'] = 'OFF'
-            
         except:
             None
 
@@ -142,40 +110,22 @@ def nortification(text):
 
 def change_situation(situation):
     SITUATION['situation'] = situation
-    config_loader.dump(USER_LIST,'config/situation.yml')
+    config_loader.dump(USER_LIST, 'config/situation.yml')
     print(SITUATION)
-
-
-def registration2(ID, status):
-    #time = datetime.now()
-    #print(ID, status, time)
-    
-    #データベースに追加
-    #reg = User(ID, status, time)
-    reg = User(ID, status)
-    db.session.add(reg)
-    db.session.commit()
-
-    if status == 'ON':
-        post2one('通知させていただきます。良い船旅を！', ID)
-        poststamp('11537','52002736',ID)
-    else:
-        post2one('通知機能をオフにします、ごゆっくり。', ID)
-        poststamp('11537','52002771 ',ID)
 
 
 def registration(ID, status):
     USER_LIST[ID] = {}
     USER_LIST[ID]['STATUS'] = status
     USER_LIST[ID]['TIME'] = datetime.now().strftime("%Y/%m/%d %H:%M")
-    config_loader.dump(USER_LIST,'config/user_list.yml')
-    print(USER_LIST)
+    config_loader.dump(USER_LIST, 'config/user_list.yml')
     if status == 'ON':
         post2one('通知させていただきます。良い船旅を！', ID)
-        poststamp('11537','52002736',ID)
+        poststamp('11537', '52002736', ID)
     else:
         post2one('通知機能をオフにします、ごゆっくり。', ID)
-        poststamp('11537','52002771 ',ID)
+        poststamp('11537', '52002771 ', ID)
+
 
 def ask_registration(ID, text='かもめがきたらつうちする？'):
     data = {
@@ -212,15 +162,14 @@ def ask_registration(ID, text='かもめがきたらつうちする？'):
         data=json.dumps(data),
     )
 
+
 def beacon_action(action, ID):
     if(action == "enter"):
         post2one('ようこそ！さんふらわあへ！！  またのご乗船ありがとうございます！', ID)
         postimage2one('https://www.ferry-sunflower.co.jp/route/osaka-beppu/time/img/img-ship.jpg', ID)
         ask_registration(ID, '前回の船旅はいかがでした？今回もかもめが来たら通知してもよろしいでしょうか？')
-        print("becon,enter")
-   # else:
-   #     ask_registration(ID)
-   #     print("becon,leave")
+        print("{}さんが乗船しました".format(ID))
+
 
 def poststamp(a, b, ID):
     data = {
@@ -241,12 +190,12 @@ def poststamp(a, b, ID):
     )
     print(res)
 
+
 def nortification_img(image_url):
     IDs = []
     for user in USER_LIST:
         if USER_LIST[user]['STATUS'] == 'ON':
             IDs.append(user)
-    
     data = {
         "to": IDs,
         "messages": [
@@ -264,6 +213,7 @@ def nortification_img(image_url):
         headers=HEADER,
     )
     print(res)
+
 
 def postimage2one(image_url, ID):
     data = {
@@ -295,7 +245,6 @@ def post2one(post_text, ID):
             }
         ]
     }
-    
     res = requests.post(
         'https://api.line.me/v2/bot/message/push',
         headers=HEADER,

@@ -1,6 +1,6 @@
 from func import *
 
-#ビーコンに近ずいた時の検証用エンドポイント 
+# ビーコンに近ずいた時の検証用エンドポイント 
 @app.route("/welcome", methods=['POST'])
 def welcome():
     ID = 'U7b72725b2f60610adb9c9798949cb360'
@@ -10,42 +10,30 @@ def welcome():
     return('OK')
 
 
-#カモメを検知した時のエンドポイント 
+# カモメを検知した時のエンドポイント 
 @app.route("/kamome", methods=['POST'])
 def kamome():
     change_situation('kamome')
-    #data = request.data.decode('utf-8')
-    #data = json.loads(data)
-    #im = np.array(data)
-    #pil_img = Image.fromarray(im.astype('uint8'))
-    #pil_img.save('save.png')
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
     nortification_stamp(11537,52002741)
-   # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
 
 
-#カラスを検知した時のエンドポイント 
+# カラスを検知した時のエンドポイント 
 @app.route("/karasu", methods=['POST'])
 def karasu():
     change_situation('karasu')
-   # data = request.data.decode('utf-8')
-   # data = json.loads(data)
-   # im = np.array(data)
-   # pil_img = Image.fromarray(im.astype('uint8'))
-   # pil_img.save('save.png')
     nortification('か、からすがいるよ！')
-   # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
 
 
-#何も検知していない時のエンドポイント 
+# 何も検知していない時のエンドポイント 
 @app.route("/etc", methods=['POST'])
 def etc(URL=None):
     change_situation('etc')
     return('OK')
 
-#入り口端末用の状態確認エンドポイント
+# 入り口端末用の状態確認エンドポイント
 @app.route("/situation", methods=['GET'])
 def situation():
     return(SITUATION['situation'])
@@ -61,30 +49,30 @@ def callback():
         print(i)
         ID = i.get("source")["userId"]
         types = i.get("type")
-        
-        #ビーコン
+        # ビーコン
         if(types == "beacon"):
             h = i.get("beacon")
             action = h["type"]
             beacon_action(action, ID)
 
-        #フォロー
+        # フォロー
         elif(types == "follow"):
             print(USER_LIST)
             if ID in USER_LIST:
                 print('おかえり')
                 post2one('再登録ありがとうございます！', ID)
                 ask_registration(ID, 'かもめが来たら通知する？')
+
             else:
                 print('新規ユーザ')
                 post2one('はじめまして！さんふらわへようこそ！フェリーといったらかもめですよね。かもめとあそぶ、それは浪漫！', ID)
                 ask_registration(ID, 'かもめが来たら通知する？')
 
-        #フォロー解除
+        # フォロー解除
         elif(types == "unfollow"):
             registration(ID, 'OFF')
 
-        #メッセージ取得時
+        # メッセージ取得時
         else:
             if(types == "message"):
                 h = i.get("message")
@@ -100,7 +88,7 @@ def callback():
                     elif True in (x in text for x in ["はい", 'いいえ']):
                         None
                     
-                    #その他のメッセージ
+                    # その他のメッセージ
                     else:
                         post2one("申し訳ございませんが、お答えできません。", ID)
                         print(ID)
@@ -108,17 +96,17 @@ def callback():
                 except:
                     None
 
-            #ポストバック
+            # ポストバック
             elif(types == "postback"):
                 h = i.get("postback")
                 data = h["data"]
 
-                #通知オン
+                # 通知オン
                 if(data == 'notification'):
                     registration(ID, 'ON')
                     registration2(ID, 'ON')
 
-                #通知オフ
+                # 通知オフ
                 elif(data == 'no notification'):
                     registration(ID, 'OFF')
 
