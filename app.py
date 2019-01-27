@@ -20,7 +20,7 @@ def kamome():
     #pil_img = Image.fromarray(im.astype('uint8'))
     #pil_img.save('save.png')
     nortification('かもめがいるよーーー！！いそいでみにきてーー！！')
-    nortification_stamp(52002741 , 11537)
+    nortification_stamp(11537,52002741)
    # nortification_img('https://camometoasobitai.herokuapp.com/save.png')
     return('OK')
 
