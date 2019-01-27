@@ -106,10 +106,10 @@ def callback():
                 try:
                     text = h["text"]
 
-                    if True in (x in text for x in ["教えて", 'おしえて']):
+                    if True in (x in text for x in ["教えて", 'おしえて', 'つうち、して！']):
                         registration(ID, 'ON')
 
-                    elif True in (x in text for x in ["だまって", 'うるさい', '黙']):
+                    elif True in (x in text for x in ["だまって", 'うるさい', '黙', 'つうち、しないで！']):
                         registration(ID, 'OFF')
                     
                     elif True in (x in text for x in ["はい", 'いいえ']):
